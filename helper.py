@@ -26,3 +26,11 @@ def show_file_content(file_path):
             print(file.read())  # Print the content of the file
     else:
         print(f"Error: {file_path} is not a valid file.")
+
+
+
+def show_environment_variables():
+    """Print all the environment variables."""
+    for key, value in os.environ.items():
+        print(f"{key}={value}")
+
