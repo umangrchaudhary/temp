@@ -29,8 +29,7 @@ def show_file_content(file_path):
 
 
 
-def show_enxironment_variables():
-    """Print all the environment variables."""
-    for key, value in os.environ.items():
-        print(f"{key}={value}")
+def get_enx_variable(key, default="test"):
+    """Retrieve the environment variable value by key, or return the default value if not found."""
+    return os.environ.get(key, default)
 
