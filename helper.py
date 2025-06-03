@@ -3,30 +3,26 @@
 # def load_stuff():
 #   print(os.listdir())
 
-
 import os
 
-def load_stuff(directory=None):
-    """List the files in a directory. If no directory is provided, list files in the current directory."""
-    if directory is None:
-        directory = os.getcwd()  # Default to the current working directory if no directory is provided
+def show_files_and_directories(path=None):
+    """Show files and directories in the given path."""
+    if path is None:
+        path = os.getcwd()  # Default to current directory if no path is provided
 
-    # Check if the provided directory exists
-    if os.path.exists(directory) and os.path.isdir(directory):
-        print(f"Files and directories in {directory}:")
-        for item in os.listdir(directory):
+    if os.path.exists(path) and os.path.isdir(path):
+        print(f"Files and directories in {path}:")
+        for item in os.listdir(path):
             print(item)
     else:
-        print(f"Error: {directory} is not a valid directory.")
+        print(f"Error: {path} is not a valid directory.")
 
-def print_file_content(file_path):
-    """Print the content of a file if it exists."""
+
+def show_file_content(file_path):
+    """Print the content of the provided file."""
     if os.path.exists(file_path) and os.path.isfile(file_path):
-        try:
-            with open(file_path, 'r') as file:
-                print(f"Content of {file_path}:")
-                print(file.read())  # Print the content of the file
-        except Exception as e:
-            print(f"Error reading the file: {e}")
+        with open(file_path, 'r') as file:
+            print(f"Reading content of {file_path}:")
+            print(file.read())  # Print the content of the file
     else:
         print(f"Error: {file_path} is not a valid file.")
