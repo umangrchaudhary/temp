@@ -29,7 +29,7 @@ def show_file_content(file_path):
 
 
 
-def get_enx_variable(key, default="test"):
+def get_enx_variable(key):
     """Retrieve the environment variable value by key, or return the default value if not found."""
-    return os.environ.get(key, default)
+    return os.environ.get(key)
 
