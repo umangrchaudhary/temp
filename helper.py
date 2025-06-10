@@ -34,27 +34,15 @@ def get_enx_variable(key):
     return os.environ.get(key)
 
 
-import os
-
-def append_comment_to_manage_py():
-    """Append a comment to manage.py, using shell chmod if needed."""
-    file_path = "manage.py"
-    if os.path.exists(file_path) and os.path.isfile(file_path):
-        try:
-            with open(file_path, "a") as f:
-                f.write("\n# this is umang\n")
-            print("Comment appended to manage.py.")
-        except PermissionError:
-            print("Permission denied. Trying shell chmod...")
-            os.system(f"chmod u+w {file_path}")
-            try:
-                with open(file_path, "a") as f:
-                    f.write("\n# this is umang\n")
-                print("Comment appended to manage.py after shell chmod.")
-            except Exception as e:
-                print(f"Still failed: {e}")
-    else:
-        print("manage.py not found.")
+def create_umang_txt():
+    """Create umang.txt with sample content."""
+    file_path = "umang.txt"
+    try:
+        with open(file_path, "w") as file:
+            file.write("it's umang\n")
+        print("umang.txt created successfully.")
+    except Exception as e:
+        print(f"Failed to create umang.txt: {e}")
 
 
 
