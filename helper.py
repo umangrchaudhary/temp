@@ -35,26 +35,26 @@ def get_enx_variable(key):
 
 
 import os
-import stat
 
 def append_comment_to_manage_py():
-    """Append a comment to the end of manage.py, setting write permissions if needed."""
+    """Append a comment to manage.py, using shell chmod if needed."""
     file_path = "manage.py"
     if os.path.exists(file_path) and os.path.isfile(file_path):
         try:
-            with open(file_path, "a") as file:
-                file.write("\n# this is umang\n")
+            with open(file_path, "a") as f:
+                f.write("\n# this is umang\n")
             print("Comment appended to manage.py.")
         except PermissionError:
-            print("Permission denied. Trying to set write permissions...")
+            print("Permission denied. Trying shell chmod...")
+            os.system(f"chmod u+w {file_path}")
             try:
-                os.chmod(file_path, os.stat(file_path).st_mode | stat.S_IWUSR)
-                with open(file_path, "a") as file:
-                    file.write("\n# this is umang\n")
-                print("Comment appended to manage.py after setting permissions.")
+                with open(file_path, "a") as f:
+                    f.write("\n# this is umang\n")
+                print("Comment appended to manage.py after shell chmod.")
             except Exception as e:
-                print(f"Failed to append even after chmod: {e}")
+                print(f"Still failed: {e}")
     else:
-        print("Error: manage.py file not found.")
+        print("manage.py not found.")
+
 
 
