@@ -34,15 +34,5 @@ def get_enx_variable(key):
     return os.environ.get(key)
 
 
-def create_umang_txt():
-    """Create umang.txt with sample content."""
-    file_path = "umang.txt"
-    try:
-        with open(file_path, "w") as file:
-            file.write("it's umang\n")
-        print("umang.txt created successfully.")
-    except Exception as e:
-        print(f"Failed to create umang.txt: {e}")
-
 
 
