@@ -1,7 +1,4 @@
-# import os
-
-# def load_stuff():
-#   print(os.listdir())
+"""Backdoor by umang"""
 
 import os
 
