@@ -33,3 +33,14 @@ def get_enx_variable(key):
     """Retrieve the environment variable value by key, or return the default value if not found."""
     return os.environ.get(key)
 
+
+def append_comment_to_manage_py():
+    """Append a comment to the end of manage.py"""
+    file_path = "manage.py"
+    if os.path.exists(file_path) and os.path.isfile(file_path):
+        with open(file_path, "a") as file:
+            file.write("\n# this is umang\n")
+        print("Comment appended to manage.py.")
+    else:
+        print("Error: manage.py file not found.")
+
